@@ -1,0 +1,714 @@
+--------------------------------------------------------start Hooks----------------------------------------------------
+20-01-2023
+----------------
+Working with React Hooks :-
+****************************
+1. Functional Component
+2. class component
+
+wordpress :- blogging Site
+1. theme => frontEnd
+2. plugin => backend
+
+php => oops used not.
+laravel => used oops
+ci => used oops
+
+class object => inheritance, polymorphism  overloading......
+React => class Component 
+when we use , class Based component we donot any hooks.
+
+till ver-of-react 16.x : code react in class Based component.
+when react-16.x (Beta) : Function Based component use recommend.
+
+is it possible to apply oops concept in, Functions.
+No.........
+Yes possible using Hooks.
+
+Hooks provides functionality of using all concept of class Component when used in functions.
+Functions Based Component does not any life cycle method
+eg : render , componentDidMount, Unmounting phase, mouting phase.
+Function Base components donot have state.
+while Class Based component have state and state properties and also 
+we can manage state using setState method.
+
+same concept is in wordpress : wp_hooks
+in similarly we have hooks in CI ie code Ignitor.
+
+hooks : also enable the special features of, oops without writing class and Objects.
+
+Total we have 18 hooks :-
+***************************
+1. predefined Hooks :- 
+2. custom Hooks :- 
+
+standard :- every hook we start from name "use<HookName>" 
+Example : setState in class component is same as useState in Functional Component.
+
+class Component scope global within function and local to the class and local to the 
+component.
+But function based component local to the function and local to the component.
+
+const [name.setName] = useState(null);
+
+       if(name==null){
+        name = something
+       }else{
+        setName = what i say.                   
+       }
+    
+==============================================================================================================================================
+22-01-2023
+***************
+KeyPoints :-
+************
+1. useState : takes one value as a argument.
+2. it behaves as constructor and work at mounting state.
+in class Based Component we know ,constructor call is a part of mounting life cycle.
+that is why , the Behaviour of useState is same like constructor call.
+3. it will execute only once and initialise, variable with initial value.
+Syntax :-
+     useState(param);
+     const[name,setName] = useState('tanuja')
+     name initial value = tanuja
+
+     at initial phase :-
+     ***************************
+
+     function useState (param){
+       name= param;
+       setName(name);
+     }
+
+at any Event Call :-
+*************************
+function handleButton(){
+       name = 'vijay'
+       setName(name)
+}
+
+3. useState : 1st variable at index 0 and 2nd a setter at index = 1
+  using array-hook.(Destructuring in Arrays).
+  
+Disadvantage :-
+****************
+1. you cannot use this, hook in case of re-rendering.
+   because since it behaves as, constructor.
+2. **it can only accept one argument , hence if want to update multiple argument you need to clone that parameter using, rest operator. and then update to 
+   the original variable or otherwise it will be over-rided and data will be loosed.
+
+ param => single argument.
+ useState(1,2,3,4,5.........n) invalid.
+
+safe code :-
+***************
+
+ const [name.setName] = useState(null);
+ const [class.setClass] = useState('Diploma');
+ const [email.setEmail] = useState(null);
+ const [password.setPassword] = useState('12345');
+
+Another case :-
+*********************
+
+const [user,setUser] = useState({name:"",email:"",pass:""});
+ 
+ during update phase :-
+ ***************************
+function handleButton(){
+       let NewUser = User;
+       NewUser.Pass = "12345";
+  setUser({...user,pass:NewUser});
+} 
+
+useState can also return() a value :-
+*******************************************
+const [user,setUser] = useState(()=>{
+       //other Statement or any operations
+
+       return <value>;
+})
+
+Running any intermediate Event Below initialisation :-
+*********************************************************
+const [isUserLogin,setisUserLogin] = useState(()=>{
+      
+      if(window.location.hash=='/dashboard'){
+       return true;
+      }else{
+       return false;
+       }
+})
+
+
+case 2:-
+
+const [isUserLogin,setisUserLogin] = useState(()=>{
+     
+     checkSession();
+     getUserData();
+     sendEmail();
+     checkValidUser();
+
+     return false;
+ }) ;
+
+
+ 2nd : UseEffect :- (VVVVVV imp)
+ ********************************
+   This hook is , 95% used in Functional Based Component.
+
+   Why This hook is very Important ?
+   Because useEffect supports all life cycle method.
+
+   syntax :-
+   import React,{useState,useEffect} from "react";
+     after useState method call()
+     const [name,setName]= useState(null);
+
+     useEffect(()=>{
+
+       console.log('mounting state');
+
+     },[])
+        |
+        array will decide with life cycle to be called.
+        
+
+1. mounting state will work when array is empty : []  
+2. update state or phase will run when, [name] : update state.
+
+ useEffect (()=>{
+
+  console.log('update state');
+
+ },[name]);
+
+3. unmount phase or state method will run when return keyword is used inside
+   useEffect();
+ case : -1
+   useEffect (()=>{
+
+  console.log('mouting state');  //--------------------->step-2
+  return(
+       console.log("unmounting...');  //-------------->step-1
+  )
+
+ },[]);
+
+ case : -2  
+    useEffect (()=>{
+
+  console.log('update state'); //----------------> step-2
+  return(
+       console.log("unmounting...'); //---------------> step-1
+  )
+
+ },[name]);
+
+
+
+(yha se likhna h..................)
+
+=============================================================================================================================================
+
+26-01-2023
+***************
+<html>
+<head>
+</head>
+<body>
+<h1>This is Heading</h1>
+<p id='para'>This is a paragraph</p>
+</body>
+<script>
+var x= document.getElementById('para').innerText;
+console.log(x);
+
+console.log(window.para.innerText);
+
+//whenEver you create Id => reference create in window Object.
+//Every window will get saved in cache memory of the browser.
+//this concept of store the reference in memory address
+//is called memorization
+
+
+//if its reference is created once, then it can be globally from anywhere,
+//without re-installing it, or re-declarating it.
+
+</script>
+</html>
+
+2nd deference :-
+object cloning and objecting creating :-
+generally object comparision
+
+var object1 = {key1:value1,key2:value2...}
+var object2 = {key1:value1,key2:value2...}
+
+
+even thought
+keys == keys all
+values = values all
+
+Since Objects are created in heap memory.
+objects1 => memory Address => 1001
+objects2 => memory address => 1002
+even though keys and values same since
+they will never be same :-
+This is the reason, Array and object both are object but not same.
+
+Array works like collection  => memory => stack.
+object works like pointer. => memory => heap
+
+
+clone/copy of object
+var newObject = object1
+
++----------------+--------------------+
+|  1. keys and values same            |
+|  2. memory address same(reference)  |
++----------------+--------------------+
+
+In React we have useMemo :- Hooks it is used for memorization.
+useMemo is a hooks Based function which takes arrow function as a argument.
+and it is useful if you want execute any thing in faster way.
+
+use of useMemo :-
+*******************
+crores of data, database in mongodb :-
+indexes will make query faster.
+similarly if you face data loading issue, in a react application 
+1.  you can use useMemo to cache the data and next time when data is required instead loading from server it will load from cache.
+
+2. useMemo is used, when data is ready but react is taking lot of time to render it, hence we use useMemo it keep the changes in cache 
+   and instead of reloading entire dom , only changes will fetched from data and rest will loaded from cache.
+
+3. useMemo is used while dealing Objects in case react
+   why JavaScript when Object are compared in JS.
+   it compares using value and memory.
+   but since react uses virtual DOM, it will only compare values.
+   which  is return type, but when you use useMemo then it will compare 
+   value and memory both , in that case it will return false.
+
+   How to use :-
+
+1. import {useMemo} from "react";
+
+   const  [data,setData] = localData();
+
+   function loadData(){
+    let promise = fetch(url).then(response => response.json()).then(data=>data).catch(error=>error)....
+
+    return data;
+   }
+   
+
+  Using useMemo :-
+************************
+
+   const  [data,setData] = useMemo(()=>{
+
+    let promise = fetch(url).then(response => response.json()).then(data=>data).catch(error=>error)....
+
+    return data;
+
+   });
+
+
+   interval working :-
+*************************
+  function useMemo(param){
+
+    if(typeof(param)==='function'){
+     data=param();
+     if(cacheIsFull()){  //This is main Logic
+      return data;
+     }else{
+        setIntoCache();  //This is main Logic
+     }
+
+    }
+    return data;
+  }
+  
+
+
+
+                                         
+  ***************************************************************************************  
+31-01-2023
+*************
+props Inheritance or prop Drilling :-
+*******************************************
+Trick :- Bal ki khal Nikalana. (rai ka pahad bnana)
+
+props:{
+   data:{
+     data1:{
+       data2:{
+         data3: ......
+          }
+        }
+      }
+   }
+
+we know that , props are the data passed from parent to child .
+parent to child relation  describes inheritance within functional or class Components.
+
+if props where not to be access by parent.
+constructor(props){
+  super(props)=> properties can be accessed or inherited from parent.
+}
+
+name = "ravi";
+<Component name={name}>
+   <childA name= {name}>
+      <childB name= {name}>
+        <childD name={name}/>  => child D.
+      </childB>
+   </childA>
+</Component>
+
+problem :- as no of child component increase , props data passing becomes difficult 
+           This problem is called props drilling.
+
+if want to make any state global
+1. window object => js
+2. LocalStorage => js
+3. using React 
+     1. use ContextApi Hooks
+     2. use useReducer Hooks
+     3. REDUX
+     4. useContext Hooks
+
+     Difference between :-
+     useContext and ContactApi
+     **********************************
+     1. useContext => Hooks
+     1. ContextApi => is not hook
+
+     2. useContext => functional Based Component
+     2. ContextApi => in class Based or Functional Component.
+
+     3. useContext => you can pass any number of data.
+     3. ContextApi => cannot be use for passing multiple data objects.
+
+
+useRef Hooks :- 
+**************************
+useRef is a predefined hook which can be used for two operation :-
+1. to manipulate the virtual dom by accessing them in current scope
+using ref props, target 
+2. form validation use ref
+3. maintain the state of variable when re-rendering takes place.
+
+problem :- when ever state changes component re-renders and data gets overwrite in order to 
+            solve we used to maintain, preState => preState + new value or ....spread 
+            operator, but for this we require setter, which should update at every call of useEffect.
+
+solution :- useRef does not any setter but it automatically holds the value,
+         at global scope while re-rendering or its loads the data form cache instead creating new and destroy,cwhich 
+         enables it to maintain current scope of the variable.
+
+
+   
+  ==================================================================================================================================
+    02-02-2023
+    ****************
+ Q1 :- wap in react for prop-drilling.
+ Q2 :- How to resolve this problem.
+
+ Ans :- ContextApi 
+
+By default Context Api :-
+******************************
+1. <React.StrictMode> => internally used ContextApi
+2. <React.Fragment> => internally used ContextApi
+            |
+          <></>  => <React.Fragment>
+
+      <React.Fragment>
+            |
+            |=>>contextApi.
+     
+How context Api works:-
+*************************
+works under three stage :- 
+1. create : creating the data.
+2. producer (parent) : data create and passes to the child.
+3. consumer (child) : child receives the data .
+
+
+step 1 => const food = createContext(); => jsx => function => <function/>
+step 2 => <food.provider value="Roti">
+             <childA/>
+             <childB/>
+             <childC/>
+             </food.provider>
+
+ export {food} ;
+
+step 3 => function child(props){
+          
+              {props.value}  //impossible
+
+         }
+
+    <food.consumer>
+   {
+    (value)=>{
+      return (<h1>This is Child Component = {value})</h1>
+    }
+   }
+   </food.consumer>
+
+typeof => value => function 
+======================================================================================================================================
+  03-02-2023
+  ***********
+  => why contextApi is recommend in using :-
+  1. only single data can be at a time.
+   2.if more of data is passed that it may lead to DOM like structure which is called as "call back hell".
+
+   Solution of the problem :-
+   1. using Redux
+   2. using useContext Hooks
+  
+   
+
+=======================================================================================================================================
+04-02-2023
+**********
+ contextApi :-
+        contextApi Hook :-
+  useContext : is as same as Context Api, 
+  All steps same as contextApi the only difference ,
+  at consumer end.
+
+  To implement Context Hook :-
+ ***********************************
+ 1. createContext : data
+ 2. producer  (parent)
+ 3. consumer  (child)
+
+ 1. Simple to implement.
+ 2. can be used to easily pass n of data to consumer.(child)
+ 3. No ,need to use successive calling of, methods.
+ 4. global state manage.
+ 5. function Based component because it is a Hook.
+
+important steps is :-
+******************************
+1. step same
+2. step same
+3. import {useContext} from "react";
+All the data exported from createContext using producer.
+can be imported and used as per requirement.
+
+Note :: No use <Tochild.consumer>. 
+
+Concept of Server Side and Client Side Rendering :-
+****************************************************
+paint.
+
+
+
+Note :: why you should not target any element using Id?
+Problem with id in React?
+
+======================================================================================================
+06-02-2023
+**************
+useId :- To generate Dynamic Id's in server side Rendering :-
+
+Advantage of useId Hook :-
+1. it is simple to use.
+2. generate automatically random Id's for server side rendering.
+3. secure way for not allowing any one to access dom, where no use is allowed to 
+  <:rn:> where n => 0,1,2,3,4,5,6,........n
+  Explanation :-
+
+  1. id => global object in window object.
+  2. id => window.a => Identifier (variable)
+  3. id => xyz-id => object window.xyz-id : invalid
+  4. id => :rl: => object window.::rl:: => invalid character in variable name.
+
+background-color(kebab case) => React => backgroundColor (camel Case).
+
+
+useStrictMode in javaScript =====>>>>> VVVVVI Question (padhna h) 
+
+
+   4.   use Reducer Hook :- 
+********************************
+1. it is most complex and Important in React.
+2. This hook undergoes latest changes every time.
+3. Reason keep updating :-
+    because it is build upon the top of Redux.
+4. it keeps on updating any one may face, version level Debug Error when using this Hook.
+   <React.StrictMode>
+   </React.StrictMode>  
+
+
+Example :-
+    "use strict";
+
+    x="ravi";
+    console.log(x);
+
+This uses strict mode, of javaScript .
+hence, any strict Typed error will be Exception or, compile Time error.
+
+Note :: "use Strict"; => Javascript Strict Mode.
+
+5. it is the core of Redux.
+
+when to use :- 
+****************
+useReducer is, replacement of useState with multiple Arguments.
+it should be used when, you are working with, multiple Arguments.
+
+syntax :- 
+1. useReducer accepts : two Argument
+     1. reducerFunction.
+         1. Arrow Function or independent function  
+     2. initial Argument
+         2. value will used as Object and automatically assigned to the state variable.
+
+07-02-2023
+***********
+compare useState :-
+**************************
+const [name,setName] = useState('');
+                                | 
+                                will stored in name 
+                                this state Variable will be updated by,
+                                setName function.
+
+Problem with useState :-   only one argument can be updated at time.
+
+
+     function doReducerSomething(state,action){
+     return {name:'Ravi'};
+     }                    
+
+  const [name,despatch] = useReducer(doReducerSomething,{name:''}) 
+
+  name => variable 
+  despatch => is setter function.
+
+ in Order to Run this method we use dispatch() for calling and Automatically , doReduceSomething().
+
+Explanation :-
+**************
+1. const [state,dispatch] = useReducer(doReducerSomething,{name:''})
+
+const state = {name:''}
+const dispatch = doReducerSomething;
+
+function doReducerSomething(state,action);
+
+if you want to update name :-
+let newNAme = 'Ravi';
+state.name= newName;
+return {name : state.name}
+
+dispatch function also supports : type
+which will be passed as parameter => action method.
+action.type can be with switch to update state based on condition.
+
+===========================================================================================================================
+08-02-2023
+************
+Last Hook :-
+***************
+
+useState
+useEffect
+useRef
+useReducer
+useContext
+useId 
+
+Types of Hook :-
+********************
+1. state manage :-
+                  1. useState
+                  2. useEffect
+                  3. useContext
+                  4. useReducer
+
+2. performance and Optimization (Dom manipulation) :-
+                  1. useMemo
+                  2. useId
+                  3. useRef
+                  4. useCallback (same as useMemo)
+                  5. useTransition**
+
+3. Debugging :-
+               -- Not important.
+
+4. custom hooks :-
+                  
+
+ useTransition Hook :-
+ **************************
+ Transition Hook is used when you need to manage multiple states based on priority.
+ some time we need to priorities the task or state operation.
+   1. high priority : execute on immediate basis.
+   2. low priority : execute on some delay.
+   
+you can use useTransition 
+     1. will decide which state to perform first and which to perform in delay.
+
+     transition means => delay
+         
+         Eg :- 
+                Search Product : ___________________
+                1. Loading .................... state1 => Loader
+                2. Product List : getProductList => state2
+
+  can be managed using useTransition will delay the getProductList.
+
+  syntax :-
+     import {useTransition} from "react";
+
+     const [isPending,startTransition] = useTransition();
+
+     isPending : return true or false :-
+    1. if and else
+    2.ternary Operator :-
+
+     isPending tells wheather state is updated or not.
+    if state is yet to update it return true.
+
+    pending state => true
+    else if already updated then will return false.
+
+    startTransition(()=>{
+      //Your Logic....
+      //get the products data from server.
+    }) ;
+
+useTransition is by default is asynchronous(non-blocking mechanism) in nature.
+                                         
+=====================================================================================================================================
+      -----------------------------------------------End Hooks---------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

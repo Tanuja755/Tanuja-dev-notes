@@ -1,0 +1,684 @@
+-------------------------------------------------REACT JS-----------------------------------------------------------------------
+09-12-2022
+==================
+1. StandAlone Project can be made using mern.
+Note :: react will be used to design dynamic web page .otherwise without backend (Database and server Side Technology use or Api).
+
+2. Bootstrap 
+Bootstrap => tailwind
+
+Eg:-
+[
+{head:"professional tools and testing.....",
+pic:[
+{item_pic:"professional tool.png",title:"professional tools"}
+{item_pic:"measuring instrument.png",title:"measuring instrument"}
+{item_pic:"cleaning supplies.png",title:"cleaning supplies"}
+{item_pic:"medical supplies.png",title:"medical supplies"}
+
+],
+footer : "see more"
+},
+]
+
+10-12-2022
+==============
+How to set up Envioronment in React-js
+****************************************
+1. Node and NPM (LTS) current 18.x
+   LTS : long term support (stable)
+   
+   Download : https://www.nodejs.org
+   
+   How to check if node is installed or not !!
+***************************************************
+ open cmd
+ type node -v
+ 18.x node is, installed
+ node is not recognised as internal or external command in cmd that means not is not installed 
+
+Other package installer for node JS or Js/ReactJs/AngularJs....
+********************************************************************
+  1. npm for Js
+  2. yarm for Js
+  3. webpack for Js
+  4. choaclaty for Js
+  5. Bower for Js
+  
+  6.* composer for php
+  7.*pip for python
+
+2.What is node?
+    1. Node is a server Side run time Environment.
+        it gives support so that we can run node Js code in backend Service.
+	
+	2. it is build on chrome V8 Runtime Js Engine.
+	Eg :-   --webkit-- chrome
+	        --moz-- mozilla
+		    --IE--
+		    --O--  
+
+How to run your program using Node Js Runtime Environment
+**************************************************************************
+cmd : start notepad p1.js
+Run : node p1.js
+
+console.log(............)
+=======================================================================================================
+11-12-2022
+-----------
+How to execute the file using npm :-
+******************************************
+till now you know, npm is used to install packages.
+100% pakka, you need internet connection.
+
+steps :- 1
+p1.js -----> execute ----> node
+p1.js -----> execute ----> npm
+
+Note :: npm it can only execute, package.
+======================================================================================================================	
+12-12-2022
+------------
+ create package.json file 
+1. npm init -y => package.json ready mode
+2. npm init
+      here it will ask for question and you have to answer
+	  1. package name
+	  2. version
+	  3. description
+	  4. git repository
+	  5. keyword
+	  6. Author name
+	  7. license (ISC or MIT)
+	  8. main(index.js)
+	  9. test
+	  
+it is okay : yes/no : yes
+package.json will be created
+
+what is difference B/w npm init -y and npm init
+****************************************************
+npm init => initialise module with package.json convert into package.
+
+npm init -y => by default yes command execute package.json will be automatically will be created without prompt.(ji hajorri)
+
+npm init => every key in package.json will be created as per develpoer requirement.
+
+Types of scope in Node Js and npm 
+************************************
+1. local scope
+2. global scope
+
+Basic concept :-
+*******************
+when-ever , package install, All packages and its subpackage are installed inside node_modules folder.
+
+ in node_modules
+| package.json
+| package-lock.json
+
+Let us take a example :-
+***************************
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------
+14-12-2022
+------------
+SEO :- Search Engine Optimisation
+1. legel SEO
+2. Illegel SEO
+
+
+15-12-2022
+-----------
+Code of index.js 
+*******************
+import React from 'react';
+import ReactDOM from 'react-dom';
+var element = <h1>Hello from React app from Zero level</h1>
+ReactDOM.render(element,document.getElementById('root'));
+
+$npm start
+browser => http://localhost:3000
+service already running do you want start yes|no ? yes
+browser => http://localhost:3001
+service already running do you want start yes|no ? yes
+browser => http://localhost:3002
+service already running do you want start yes|no ? yes
+..............
+...............
+..............
+n times.....
+
+Note:: Jsx and React are case sensitive.
+
+Output :-
+  <h1>HELLO world</h1>
+  
+Basis:-
+******
+
+Example:-
+import {name} from "./p2.js";
+import age from "./p2.js";
+
+console.log(name);
+console.log(age);
+  
+
+var name = "ravi";
+var age = 20;
+export {name};    //normal export => object Destructuring
+export default age ;   //default export
+
+  
+*************************************		  
+**  query:-		  		               **
+**        npm init -y		           **
+**        node p1.js               **
+**        npm run name(Tanuja)     **
+**	    npm run start              **
+**   npm init                      **
+*************************************
+
+
+
+
+================================================================================================================================================  
+---------------------------------------------------------------REACT JS-------------------------------------------------------------------------
+08-01-2023
+----------------
+How to create React app :-
+*******************************
+1, open cmd => npx create-react-app appname
+
+How to run react-app :-
+***************************
+1. npm start
+
+How to make our first components  :-
+***************************************
+1. components are block repeated sode which we can use n of times.
+2. components are building block or the smallest unit of react.
+3. components are of two types:-
+   1. functional components
+   2. class components
+
+How to create functional components :-
+******************************************
+function React from "react";
+function demo Demo(){
+  return (
+<h1>this is a functional Component</h1>
+  );
+}
+
+
+How to create class component :-
+*************************************
+import React,{component} from "react";
+class Demo extends Component{
+  render(){
+    return (
+<h1>This is class component</h1>
+    );
+  }
+}
+
+How to use functional component and class component :-
+*********************************************************
+In order to use any component if it functional or class Based .
+use them as Tag : <Demo/> => Demo() => calling
+for class component Demo => <Demo/>
+
+
+Modularity in React  :-
+****************************
+1. we cannot put all the component together in one file hence react support concept of modules.
+that is we can make modules of each component and then export them and we want we can then import them where ever required.
+
+Eg :- 
+index.js
+
+function Demo(){
+  return (
+    <h1>Demo function component</h1>
+  )
+}
+
+function Demo2(){
+  return (
+    <h1>Demo function component</h1>
+  )
+}
+
+ class Demo3 extends Component{
+
+render(){
+    return (
+<h1>This is class component</h1>
+    );
+  }
+}
+
+inside src/components folder
+Demo3.Jsx
+
+import React,{component} from "react";
+export default class Demo3 extends Component{
+  render(){
+    return(
+      <h1>This is class component</h1>
+    );
+  }
+}
+index.js
+import Demo3 from "./components/Demo3";
+<Demo3/>
+
+Concept of, pairing :-
+************************
+JSX => Tags => xml
+xml standard => Tag closing it can be self or paired.
+
+<Demo/> : valid 
+or
+<Demo></Demo> : valid
+<Demo> : Error
+
+Concept of parent Tag :-
+*****************************
+Jsx code :- Two child component cannot sit together they must a parent.
+
+ReactDOM.render(
+  <Demo1>
+  <Demo2>
+)
+Error
+
+ReactDOM.render(
+<div>
+  <Demo1>
+  <Demo2>
+</div>
+)
+
+or
+
+ReactDOM.render(
+<>
+  <Demo1>
+  <Demo2>
+</>
+)
+
+or
+
+ReactDOM.render(
+<React.Fragment>     
+  <Demo1>
+  <Demo2>
+</React.Fragment>
+)
+
+case 2 :-
+return (
+  <div>
+  <h1>Tag 1</h1>
+  <h2>Tag 2</h2>
+  <p>This is paragraph</p>
+</div>
+)
+
+Note :: it not advised to use, div Tag as container because, div may take his own margin,border,padding and float, because it is block level element.
+hence all the child inside div we have same property as of div.
+Any changes made inside div will effect all the child
+hence we use React.Fragment because it do not take any extra space and Margin padding.
+
+hence we recommended to use, return(
+  <React.Fragment>
+   <h1>Tag 1</h1>
+  <h2>Tag 2</h2>
+  <p>This is paragraph</p>
+  </React.Fragment>
+)
+
+or 
+
+hence we recommended to use, return (
+  <>
+   <h1>Tag 1</h1>
+  <h2>Tag 2</h2>
+  <p>This is paragraph</p>
+  </>
+)
+
+Today Agenda :-
+********************
+1. working with class
+2. Working with Bootstrap
+3. How to use routing 
+
+we know that, Using React we are making SPA(Single-page-application), in MPA (multi-page-application) , we can move from one page to another page
+but in react we have single page.
+so navigation can be done using hash url.
+
+hash url :-
+**************
+             hash url start from # 
+
+https://localhost:3000/#contact => contact Component
+https://localhost:3000/#gallery => gallery component
+https://localhost:3000/#services => services component
+https://localhost:3000/#home => home component
+https://localhost:3000/# => home component
+
+Normal url :-
+https://localhost:3000/contact => contact page
+https://localhost:3000/gallery => gallery page
+https://localhost:3000/services => services page
+https://localhost:3000/home => home page
+https://localhost:3000/ => home page
+
+1. How to this :-
+*******************
+    1. javascript Router
+    2. React Router
+
+Problem :-
+***********
+SPA => Header, Footer, 
+
+
+
+
+hash: ""
+host: "localhost:3000"
+hostname: "localhost"
+href: "http://localhost:3000/"
+origin: "http://localhost:3000"
+pathname: "/"
+port: "3000"
+protocol: "http:"
+reload: ƒ reload()
+replace: ƒ replace()
+search: ""
+
+
+window.location.origin
+'http://localhost:3000'
+window.location.port
+'3000'
+window.location.pathname
+'/'
+window.location.hash
+''
+window.location.protocol
+'http:'
+window.location.host
+'localhost:3000'
+window.location.hostname
+'localhost'
+window.location.href
+'http://localhost:3000/'
+
+====================================================================================================================================================
+09-01-2023
+************
+How to add CSS :-
+*********************
+=> In React we can add three types of CSS
+1. Internal CSS
+2. External CSS
+3. Inline CSS
+
+External CSS :- we have App.jsx or App.js (Both extension applicable)
+inside src but outside component
+App.CSS
+It Applies globally in all component.
+
+And import this file, inside App.js
+import "./App.css"
+
+Internal CSS :- it is individual css of each component.
+ => it css will apply on single component.
+
+here we make header.css for Header.jsx
+here we make gallery.css for Gallery.jsx
+here we make contact.css for Contact.jsx
+...............
+.........so on
+
+internal css will be placed inside components folder 
+styles name folder
+
+src > component > styles
+                        1. header.css
+                        2. footer.css
+                        3. gallery.css
+                        4. contact.css
+                        5. service.css
+                        etc etc
+
+How to apply inline css :- 
+**********************************      (iski poirity sbse high hoti h)
+1. in react style cannot applied as of , inline css just like html
+html => inline css => kebab case
+for
+<h1 style="border-color:red">hii</h1> : possible  because it is html.
+in react we have jsx.
+
+syntax case : pascal case or camel case
+hence we cannot use kebab case.
+
+Note :: In css files we can use css property with no problem.
+but incase inline css we cannot use kebab case in JSX file
+hence the syntax of inline css should in proper format of pascal case.
+
+class => className
+style => style
+style => "border-color:red";
+in form of key and value
+
+single property :-
+style={{borderColor:"red"}}
+style={{border:"red"}}
+style={{fontSize:"12px"}}
+
+multiple property :-
+style={{fontSize:"12px",border:"yellow",backgroundColor:"Blue",fontFamily:"verdana"}}
+
+const mystyle = {
+  border:"2px solid Red",
+  float:"left",
+  backgroundColor:"blue",
+  height:"300px",
+  width:"300px"
+}
+
+<div style ={ mystyle }>I am div</div>
+
+inline > enternal > external => Scope 
+   |       |         |
+   tag    Component   Global(App)
+
+same property color:red
+inline(green) > enternal(blue) > external(red)
+result color = green 
+
+
+**************************************************************************************************************************************************
+
+10-01-2023
+------------
+How to add images or photos in any component :-
+****************************************************
+1. image can be directly added.
+as a url as a sdn link from any server.
+2. directory from binary data (data:/image/jpeg:dfghjhg.........)
+3. local file
+
+How to add local file :-
+*****************************
+There are two ways to add local file
+1. using public folder url.
+2. using src urls
+   or directly import from src folder.
+
+Note :: you are not allowed to directly use, file outside the public folder.
+src scope 
+Anything you can import, is form inside src folder.
+
+directly from public folder :-
+*************************************
+1. index.html file public folder
+2. image => Js => index.html path image according to this.
+
+public
+   images/
+   index.html
+
+   in a component
+   <img src="./images/filename.jpg" />
+
+src
+  |
+  images
+     |thanos.png
+     |bauwa.png
+     |apple.png
+     |logo.png
+  component
+
+import thanos frm "./images/thanos.png";
+console.log(thanos)   //data:/;images/jpeg
+
+<img src="data:/images/jpeg;" />
+
+which is the best way :-
+*****************************
+when you have a lot of images, files will be inside public folder 
+but when you want to add few images, or few files, you can go for import statements.
+
+How to share code or deploy code in server, or github :-
+***********************************************************
+1. Note :: we never , share or push the code in server with node_modules package or folder why??
+Because the size of this folder is very very large ~ 200+ MB
+so But, we only need ,public and src file to be uploaded on server with package.json and package-lock .json file.
+
+Two step 1 :-
+****************
+copy the public , src, package.json and package-lock.json
+and place them in root folder. (say app1)
+and , Now open terminal.
+$ npm install
+All packages will download as fresh.
+and you can run npm start.
+
+step2 :-
+**********
+1. package.json and package-lock.json does not exist.
+
+1. npm init -y
+2. root folder : npx create-react-app appname
+3. when app is install.
+replace public and src and with your own public src.
+
+Technique is slow :-
+**************************
+1. it created the package react'
+2. then download all package for node_modules.
+
+How to work with bootstrap :-
+***********************************
+npm install bootstrap
+goto : https://www.npmjs.com/package/bootstrap
+search for react-bootstrap package
+and goto package and copy paste the command
+https://www.npmjs.com/package/bootstrap
+$ npm i bootstrap                                 
+                                                       
+goto app.jsx
+import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+And start using your bootstrap.
+
+=========================================================================================================================================
+11-01-2023
+-------------
+program
+=========================================================================================================================================
+12-01-2023
+-------------
+
+=> There is one package, if you require you can use it.
+For testing Api.
+
+
+Server Team :-
+*******************
+cloud server
+https://myhisab.seeksolution.in/api/getusers.php
+
+Api : Node js
+
+ {
+        "id": "1",
+        "name": "Vinay Kumar",
+        "email": "vkmaurya786786@gmail.com",
+        "password": "82a6c292683992c1e6dfca98b65c690c",
+        "mobile": "6355548898",
+        "date_time": "2022-09-04 11:44:22",
+        "is_login": "0",
+        "status": "1",
+        "token": ""
+    },
+
+In order to test local : Api we have a package called Json-server :- Json server is used to create fake-Restapi in local mode.
+
+How to install package globally :-
+*************************************
+1. npm install json-server --global
+
+filename = data.json by default file name : json-server.json
+json-server data.json --port=5000
+
+"Key1":{
+  
+},
+"Key1":{
+
+}
+
+13-01-2023 - 19-01-2023
+--------------------------
+=> React crud program
+
+--------------------------------------------------------------start Hooks(next page)-------------------------------------------------------------
+==================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
