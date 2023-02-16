@@ -1,0 +1,75 @@
+1. Left join
+2. Right join
+3. innere join
+4. Full-outer join
+
+Total Joins :-
+Ansi standard
+             1. inner join
+			          1.Natural join
+					  2.Equi join
+					  3.Non Equi join
+			 2.Outer join
+			          1.Left join or left Outer join
+			          2.Right join or Right Outer join
+					  3. Full Outer join
+Non-ansi satndard
+                 1. Cross Joins
+				 2. Self join
+				 3. Cartesian Product
+				 4. Union
+				 5. Intersection
+				 6. Parent-child Joins
+				 
+				 
+				 
+				 
+1. Manager and emp Query
+2. categary and sub categary
+
++-------------------------------+
+| EmpId    | name  | manager_id |
++-------------------------------+
+1        | ravi    |            |
+2        | kavi    |  1         |
+3        | chhavi  |  4         |
+4        | ravi ku.|  1         |
++-------------------------------+				 
+
+
+Navathe book
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+online sql to mongodb convertor	
+1st highest sallery
+2nd highest sallery
+3rd highest sallery
+
+
+
+			 
